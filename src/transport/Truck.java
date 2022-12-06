@@ -1,8 +1,22 @@
 package transport;
 
+import transport.enums.LoadCapacity;
+
 public class Truck extends Transport implements Competitive {
-    public Truck(String brand, String model, double engineVolume) {
+
+    private LoadCapacity loadCapacity;
+
+    public Truck(String brand, String model, double engineVolume, LoadCapacity loadCapacity) {
         super(brand, model, engineVolume);
+        this.loadCapacity = loadCapacity;
+    }
+
+    public LoadCapacity getLoadCapacity() {
+        return loadCapacity;
+    }
+
+    public void setLoadCapacity(LoadCapacity loadCapacity) {
+        this.loadCapacity = loadCapacity;
     }
 
     @Override
@@ -13,6 +27,17 @@ public class Truck extends Transport implements Competitive {
     @Override
     public void finishMovement() {
         System.out.println("Движение закончено");
+    }
+
+    @Override
+    public void printType() {
+        if (loadCapacity == null) {
+            System.out.println("Данных по автомобилю недостаточно");
+        }else {
+            String from = loadCapacity.getFrom() == null ? "" : "от " + loadCapacity.getFrom() + " ";
+            String to = loadCapacity.getTo() == null ? "" : " до " + loadCapacity.getTo();
+            System.out.println("Грузоподъемность: " + from + to + " тонн.");
+        }
     }
 
     @Override

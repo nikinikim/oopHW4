@@ -39,6 +39,8 @@ public abstract class Transport {
 
     public abstract void finishMovement();
 
+    public abstract void printType();
+
     @Override
     public String toString() {
         return "Transport{" +

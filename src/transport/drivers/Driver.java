@@ -1,4 +1,6 @@
-package transport;
+package transport.drivers;
+
+import transport.Transport;
 
 public abstract class Driver <T extends Transport>{
     private final String fullName;
