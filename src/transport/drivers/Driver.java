@@ -1,18 +1,19 @@
 package transport.drivers;
 
+import transport.CheckingObjects;
 import transport.Transport;
 
 public abstract class Driver <T extends Transport>{
     private final String fullName;
     private final String license;
     private final int driveExperience;
-    private final T car;
+    private T car;
 
     public Driver(String fullName, String license, int driveExperience, T car) {
         this.fullName = fullName;
         this.license = license;
         this.driveExperience = driveExperience;
-        this.car = car;
+        setCar(car);
     }
 
     public String getFullName() {
@@ -29,6 +30,13 @@ public abstract class Driver <T extends Transport>{
 
     public T getCar() {
         return car;
+    }
+
+    public void setCar(T car) {
+        if (car == null) {
+            throw new IllegalArgumentException("Необходимо указать категорию");
+        }
+        this.car = car;
     }
 
     public void startDriving() {

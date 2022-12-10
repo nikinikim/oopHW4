@@ -41,6 +41,11 @@ public class Truck extends Transport implements Competitive {
     }
 
     @Override
+    public boolean getDiagnosed() {
+        return Math.random() > 0.5;
+    }
+
+    @Override
     public void pitStopped() {
         System.out.println("Приехал на пит-стоп");
     }

@@ -37,6 +37,12 @@ public class Bus extends Transport implements Competitive{
     }
 
     @Override
+    public boolean getDiagnosed() {
+        System.out.println("Автобусу не требуется диагностика");
+        return true;
+    }
+
+    @Override
     public void pitStopped() {
         System.out.println("Приехал на пит-стоп");
     }

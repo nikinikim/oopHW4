@@ -23,6 +23,8 @@ public class Main {
         Bus zil = new Bus("ЗиЛ", "118", 5.0, Capacity.LARGE);
         Bus gaz = new Bus("ГАЗ", "651", 5.0, Capacity.EXTRA_LARGE);
 
+        getDiagnostic(audi, bmw, mercedes, kia, kamaz, man, ural, scania, ikarus, paz, zil, gaz);
+
         System.out.println(audi);
         audi.startMovement();
         audi.finishMovement();
@@ -30,6 +32,7 @@ public class Main {
         audi.bestTimeOfLap();
         audi.maxSpeed();
         audi.printType();
+
 
         DriverB ben = new DriverB("Ben Beno Benov", "B", 5, audi);
 
@@ -40,7 +43,20 @@ public class Main {
 
         System.out.println(ikarus);
         ikarus.printType();
+    }
+    private static void getDiagnostic(Transport ... transports) {
+        for (Transport transport : transports) {
+                getDiagnosticTransport(transport);
+        }
+    }
 
-
+    private static void getDiagnosticTransport(Transport transport) {
+        if (!transport.getDiagnosed()) {
+            try {
+                throw new RuntimeException("Автомобиль " + transport.getBrand() + " " + transport.getModel() + " не прошел диагностику");
+            } catch (RuntimeException e) {
+                System.out.println(e.getMessage());
+            }
+        }
     }
 }
