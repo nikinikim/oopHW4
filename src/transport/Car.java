@@ -63,4 +63,9 @@ public class Car extends Transport implements Competitive {
         return "Car{}" + super.toString();
     }
 
+    @Override
+    public void repair() {
+        System.out.println("Машина " + getBrand() + " " + getModel() + " починена");
+    }
+
 }
