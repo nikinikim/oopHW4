@@ -1,9 +1,20 @@
 package transport;
 
-public class Car extends Transport implements Competitive {
+import transport.enums.TypeOfBody;
 
-    public Car(String brand, String model, double engineVolume) {
+public class Car extends Transport implements Competitive {
+    private TypeOfBody typeOfBody;
+    public Car(String brand, String model, double engineVolume, TypeOfBody typeOfBody) {
         super(brand, model, engineVolume);
+        this.typeOfBody = typeOfBody;
+    }
+
+    public TypeOfBody getTypeOfBody() {
+        return typeOfBody;
+    }
+
+    public void setTypeOfBody(TypeOfBody typeOfBody) {
+        this.typeOfBody = typeOfBody;
     }
 
     @Override
@@ -15,6 +26,20 @@ public class Car extends Transport implements Competitive {
     @Override
     public void finishMovement() {
         System.out.println("Движение закончено");
+    }
+
+    @Override
+    public void printType() {
+        if (typeOfBody == null) {
+            System.out.println("Данных по автомобилю недостаточно");
+        }else {
+            System.out.println("Тип: " + typeOfBody.getTitle());
+        }
+    }
+
+    @Override
+    public boolean getDiagnosed() {
+        return Math.random() > 0.7;
     }
 
     @Override
