@@ -60,6 +60,11 @@ public class Truck extends Transport implements Competitive {
         System.out.println("Максимальная скорость: ...");
     }
 
+    @Override
+    public void repair() {
+        System.out.println("Грузовик " + getBrand() + " " + getModel() + " починен");
+    }
+
 
     @Override
     public String toString() {
