@@ -19,18 +19,16 @@ public class Main {
         Sponsor zoloto = new Sponsor("Золото", 2_500_000.00);
 
         Car audi = new Car("Audi", "A4", 2.0, TypeOfBody.COUPE);
-        audi.addDriver(new DriverB("Ben Beno Benov", "B", 5, audi));
-        audi.addMechanic(maxim);
-        audi.addSponsor(magnat);
+        audi.getMechanicSet().add(maxim);
+        audi.getSponsorSet().add(magnat);
 
         Car bmw = new Car("Bmw", "X5", 3.0, TypeOfBody.CROSSOVER);
         Car mercedes = new Car("Mercedes", "C200", 1.8, TypeOfBody.HATCHBACK);
         Car kia = new Car("KIA", "K5", 2.4, TypeOfBody.SEDAN);
 
         Truck kamaz = new Truck("Камаз", "К5", 8.0, LoadCapacity.N2);
-        kamaz.addDriver(new DriverC("Leon L Leonov", "C", 6, kamaz));
-        kamaz.addMechanic(sanya);
-        kamaz.addSponsor(zoloto);
+        kamaz.getMechanicSet().add(sanya);
+        kamaz.getSponsorSet().add(zoloto);
 
         Truck man = new Truck("Man", "TGX", 5.0, LoadCapacity.N3);
         Truck ural = new Truck("Урал", "4320", 11.5, LoadCapacity.N3);
@@ -72,9 +70,8 @@ public class Main {
     }
     private static void printInfo(Transport transport) {
         System.out.println("Информация по автомобилю "  + transport.getBrand() + " " + transport.getModel());
-        System.out.println("Водитель: " + transport.getDrivers());
-        System.out.println("Спонсоры: " + transport.getSponsors());
-        System.out.println("Механик: " + transport.getMechanics());
+        System.out.println("Спонсоры: " + transport.getSponsorSet());
+        System.out.println("Механик: " + transport.getMechanicSet());
         System.out.println();
     }
     private static void getDiagnostic(Transport ... transports) {

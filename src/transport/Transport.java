@@ -2,17 +2,17 @@ package transport;
 
 import transport.drivers.Driver;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public abstract class Transport {
     private final String brand;
     private final String model;
     private double engineVolume;
-    private final List<Driver<?>> drivers = new ArrayList<>();
-    private final List<Mechanic<?>> mechanics = new ArrayList<>();
-    private final List<Sponsor> sponsors = new ArrayList<>();
+
+    Set<Mechanic> mechanicSet;
+
+    Set<Sponsor> sponsorSet;
+
 
     public Transport(String brand, String model, double engineVolume) {
         this.brand = CheckingObjects.checkString(brand);
@@ -22,6 +22,8 @@ public abstract class Transport {
         } else {
             this.engineVolume = engineVolume;
         }
+        this.mechanicSet = new HashSet<>();
+        this.sponsorSet = new HashSet<>();
     }
 
     public String getBrand() {
@@ -44,24 +46,12 @@ public abstract class Transport {
         }
     }
 
-    public List<Driver<?>> getDrivers() {
-        return drivers;
+    public Set<Mechanic> getMechanicSet() {
+        return mechanicSet;
     }
 
-    public List<Mechanic<?>> getMechanics() {
-        return mechanics;
-    }
-
-    public List<Sponsor> getSponsors() {
-        return sponsors;
-    }
-
-    public void addDriver(Driver<?>... drivers) {
-        this.drivers.addAll(Arrays.asList(drivers));
-    }    public void addMechanic(Mechanic<?>... mechanics) {
-        this.mechanics.addAll(Arrays.asList(mechanics));
-    }    public void addSponsor(Sponsor... sponsors) {
-        this.sponsors.addAll(Arrays.asList(sponsors));
+    public Set<Sponsor> getSponsorSet() {
+        return sponsorSet;
     }
 
     public abstract void startMovement();
