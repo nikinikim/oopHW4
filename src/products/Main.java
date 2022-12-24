@@ -35,10 +35,10 @@ public class Main {
         Recipe friedEgg = new Recipe("Жаренная яишница");
         Recipe fruitSalad = new Recipe("Фруктовый салат");
 
-        sandwitch.addProductsInTheRecipe(bread, tomato, chicken);
+/*        sandwitch.addProductsInTheRecipe(bread, tomato, chicken);
         chickenTomato.addProductsInTheRecipe(chicken, tomato);
         friedEgg.addProductsInTheRecipe(egg, tomato);
-        fruitSalad.addProductsInTheRecipe(orange, apple);
+        fruitSalad.addProductsInTheRecipe(orange, apple);*/
 
         sandwitch.addRecipe(recipes);
         chickenTomato.addRecipe(recipes);
